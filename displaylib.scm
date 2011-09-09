@@ -44,7 +44,8 @@
                 (string<? current-car "z"))
               (and 
                 (string>? current-car "0")
-                (string<? current-car "9"))))
+                (string<? current-car "9"))
+              (string=? current-car "-")))
         n
         (rec-last-special s (- n 1))))))
 
