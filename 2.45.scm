@@ -7,8 +7,9 @@
      
      produces procedures right-split and up-split with the same behaviors as the ones already defined.")
 
-(define (up-split painter n)
-  (if (= n 0)
-    painter
-    (let ((smaller (up-split painter (- n 1))))
-      (below painter (beside smaller smaller)))))
+(define (split transform1 transform2)
+  (lambda (painter n)
+    (if (= n 0)
+      painter
+      (let ((smaller ((split transform1 transform2) painter (- n 1))))
+        (transform1 painter (transform2 smaller smaller))))))
