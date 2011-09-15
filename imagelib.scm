@@ -45,6 +45,9 @@
                 (scale-vect (ycor-vect v)
                             (edge2-frame frame))))))
 
+(define (draw-line p1 p2)
+  (display "Draw: ")(display p1)(display " -> ")(display p2)(newline))
+
 (define (segments->painter segment-list)
   (lambda (frame)
     (for-each
