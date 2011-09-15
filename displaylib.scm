@@ -37,14 +37,14 @@
       (if (not 
             (or 
               (and 
-                (string>? current-car "A")
-                (string<? current-car "Z"))
+                (string>=? current-car "A")
+                (string<=? current-car "Z"))
               (and
-                (string>? current-car "a")
-                (string<? current-car "z"))
+                (string>=? current-car "a")
+                (string<=? current-car "z"))
               (and 
-                (string>? current-car "0")
-                (string<? current-car "9"))
+                (string>=? current-car "0")
+                (string<=? current-car "9"))
               (string=? current-car "-")))
         n
         (rec-last-special s (- n 1))))))
