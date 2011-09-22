@@ -1,2 +1,2 @@
 #!/usr/bin/env zsh
-scheme --load $1 </dev/null | tail -n +12 | head -n -5
+scheme --load $1 </dev/null | tail -n +12 | sed '5d'
