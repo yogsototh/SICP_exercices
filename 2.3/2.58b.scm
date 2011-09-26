@@ -93,14 +93,14 @@
 (define (multiplier p) (left-expr p '*))
 (define (multiplicand p) (right-expr p '*))
 
-(define (simplify e)
-  (cond ((= (length e) 1) (car e))
+(define (simplify e) 
+  (cond ((= (length e) 1) (car e)) 
         ((sum? e) (make-sum 
-                       (addend e)
-                       (augend e)))
+                    (addend e)
+                    (augend e)))
         ((product? e) (make-product 
-                           (multiplier e) 
-                           (multiplicand e)))
+                        (multiplier e) 
+                        (multiplicand e)))
         (else (error "unknown expression type -- simplify" e))))
 
 
@@ -111,13 +111,13 @@
   (cond ((=number? a1 0) a2)
         ((=number? a2 0) a1)
         ((and (number? a1) (number? a2)) (+ a1 a2))
-        (else (list 'a1 + a2))))
+        (else (list a1 '+ a2))))
 (define (make-product m1 m2) 
   (cond ((or (=number? m1 0) (=number? m2 0)) 0)
         ((=number? m1 1) m2)
         ((=number? m2 1) m1)
         ((and (number? m1) (number? m2)) (* m1 m2))
-        (else (list 'm1 * m2))))
+        (else (list m1 '* m2))))
 
 
 ; (display "(deriv '(x + 3) 'x)")(newline)
@@ -129,7 +129,7 @@
 
 (define expr1 '(x * 3 + 2))
 (define expr2 '(10 * x * x + x * 3 + 2) )
-(display  "(deriv ")(display expr1)(display ") 'x)")(newline)
+(display  "(deriv '")(display expr1)(display " 'x)")(newline)
 (display  (deriv expr1 'x))(newline)
-(display  "(deriv ")(display expr2)(display ") 'x)")(newline)
+(display  "(deriv '")(display expr2)(display " 'x)")(newline)
 (display  (deriv expr2 'x))(newline)
