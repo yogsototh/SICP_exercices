@@ -24,17 +24,8 @@
        b. Do the two procedures have the same order of growth in the number of steps required to convert a balanced tree with n elements to a list? If not, which one grows more slowly? 
        ")
 
-; a - No, the first is depth-first search, the second is breadth-first search
-;
-; for the first:
-;   1 5 3 11 9 7
-;   1 5 11 9 7 3
-;   1 3 7 11 9 5
-;
-; for the second:
-;   7 3 1 5 9 11
-;   3 1 7 5 9 11
-;   5 3 1 9 7 11
+; a - Yes, they both return the tree in the right order
+; more precisely ( 1 3 5 7 9 )
 
 ; b - the first method append at each step which is linear. Therefore for a balanced tree of n elements, we need to make n/2 steps to append to the rest. Therefore the number of steps is about nlog n
 ;   - the second make only one operation for each element. Therefore, only n. 
